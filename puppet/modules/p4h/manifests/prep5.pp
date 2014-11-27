@@ -42,7 +42,10 @@ Bonus:
 Happy hacking!\n",
 	}
 
-	# XXX: write your code here...
+    include prep5_cls1
+    include prep5_cls1
+    include prep5_cls2
+    include prep5_cls2
 
 }
 
