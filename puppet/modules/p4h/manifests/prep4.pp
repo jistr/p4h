@@ -38,8 +38,15 @@ Level 42:
 Happy hacking!\n",
 	}
 
-	# XXX: write your code here...
+    $caption = "The hostname is: "
+    $host = inline_template("<%= @hostname %>")
+    $message = inline_template("<%= @caption + @host %>")
 
+    notify { "$message": }
+
+    file { '/root/whatismyhostname':
+      content => template('p4h/sth.erb'),
+    }
 }
 
 # vim: ts=8
