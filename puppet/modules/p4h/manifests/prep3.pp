@@ -42,7 +42,16 @@ Hint:
 Happy hacking!\n",
 	}
 
-	# XXX: write your code here...
+    $myname = "jistr"
+    $message = "$myname has done the prep3 assignment"
+    $two = 'two'
+    $twopotato = "don't print this"
+
+    notify { "$myname":
+      message => "$message",
+    }
+
+    notify { "onepotato${two}potato": }
 
 }
 
