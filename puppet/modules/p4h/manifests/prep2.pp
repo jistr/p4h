@@ -32,7 +32,20 @@ Bonus:
 Happy hacking!\n",
 	}
 
-	# XXX: write your code here...
+    $username = 'p4huser'
+    $userhome = "/home/$username"
+    $poem = "This is a poem.\nIt may not look like that,\nbut it is a poem.\n"
+
+    user { "$username":
+      home       => $userhome,
+      managehome => true,
+      ensure     => present,
+    }
+    ->
+    file { "$userhome/poem.txt":
+      content => $poem,
+      ensure  => present,
+    }
 
 }
 
