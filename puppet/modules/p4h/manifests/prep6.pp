@@ -55,7 +55,9 @@ Level 42:
 Happy hacking!\n",
 	}
 
-	# XXX: write your code here...
+    # sorry i don't know what was meant by including the class "along
+    # with another type"
+    include ::prep6
 
 }
 
