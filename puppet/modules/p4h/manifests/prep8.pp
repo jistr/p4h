@@ -47,7 +47,22 @@ Level 42:
 Happy hacking!\n",
 	}
 
-	# XXX: write your code here...
+
+    exec { 'set timezone to Prague':
+      command => 'timedatectl set-timezone Europe/Prague',
+      unless  => 'timedatectl | grep Timezone | grep Europe/Prague',
+      path    => ["/usr/bin", "/usr/sbin"],
+    }
+    ->
+    exec { 'timestamp first puppet run':
+      command => '/usr/bin/date > /root/first_puppet_run_time.txt',
+      creates => '/root/first_puppet_run_time.txt',
+    }
+
+    exec { 'write out which shell is used by puppet':
+      command => '/usr/bin/echo "$SHELL" > /root/puppet_shell.txt',
+      onlyif  => '/usr/bin/test ! -e /root/puppet_shell.txt'
+    }
 
 }
 
