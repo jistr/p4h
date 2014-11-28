@@ -43,7 +43,17 @@ Bonus:
 Happy hacking!\n",
 	}
 
-	# XXX: write your code here...
+    p4h::prep7_hello { 'world': }
+    p4h::prep7_hello { 'puppet':
+      greeting => 'hi',
+    }
+
+    p4h::prep7_digest { 'apple': }
+    p4h::prep7_digest { 'banana': }
+
+    notify { 'all prep7_hello will be created after this': }
+    ->
+    ::P4h::Prep7_hello<||>
 
 }
 
