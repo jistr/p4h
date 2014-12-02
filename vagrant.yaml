@@ -11,14 +11,9 @@
 :docker: false
 :cachier: false
 :vms:
-- :name: lesson5
-- :name: lesson6
-- :name: lesson7
-- :name: lesson8
-- :name: lesson9
-- :name: lesson10
-- :name: lesson11
-- :name: lesson12
+- :name: lesson12-a
+- :name: lesson12-b
+- :name: lesson12-c
 - :name: lesson13
 - :name: lesson14
 - :name: lesson15
