@@ -55,6 +55,10 @@ Happy hacking!\n",
 
     include ::mymodule
 
+    $names = ['a', 'b', 'c']
+    $messages = parseyaml(inline_template('<%= @names.map() { |name| "Hello #{name}" }.to_yaml %>'))
+
+    notify { $messages: }
 }
 
 # vim: ts=8
