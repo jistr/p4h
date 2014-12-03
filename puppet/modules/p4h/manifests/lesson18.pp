@@ -43,7 +43,22 @@ Level 42:
 Happy hacking!\n",
 	}
 
-	# XXX: write your code here...
+    include ::common::again
+
+    notify { 'this is executed during first run': }
+
+    # ideally this would check if it needs to execute
+    exec { 'set timezone to CET':
+      command => '/usr/bin/timedatectl set-timezone Europe/Prague'
+    }
+
+    if $::timezone == 'CET' {
+      notify { 'this is executed during second and subsequent runs': }
+    } else {
+      notify { 'running puppet again':
+        notify => Exec['again'],
+      }
+    }
 
 }
 
