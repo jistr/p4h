@@ -37,7 +37,7 @@ Hint:
 ** It's easy to setup, just use:
 class { '::keepalived::simple':
 	#ip => '',
-	vip => "${valid_vip}",	# add your own value
+	vip => valid_vip,	# add your own value
 	shorewall => false,	# or true if you prefer
 	#password => '',	# should be automatic!
 }
@@ -53,7 +53,14 @@ Level 42:
 Happy hacking!\n",
 	}
 
-	# XXX: write your code here...
+    $valid_vip = '192.168.124.3'
+
+    class { '::keepalived::simple':
+        # ip => "$ipaddress_eth2",
+        vip => "$valid_vip",	# add your own value
+        shorewall => false,	# or true if you prefer
+        #password => '',	# should be automatic!
+    }
 
 }
 
